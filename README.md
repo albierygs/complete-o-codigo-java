@@ -22,15 +22,15 @@ Para quem deseja contribuir com o projeto, seja com novos exercícios, correçõ
 Estes aqui são os temas dos desafios disponíveis para serem implementados. Se quiser, em seu fork, marque cada um deles como concluído conforme as suas soluções são desenvolvidas. :muscle:
 
 - Fácil
-  - [ ] ArrayLists
-  - [ ] BigDecimals
-  - [ ] Booleanos
-  - [ ] Calculadora
-  - [ ] LocalDates
-  - [ ] Strings
+  - [X] ArrayLists
+  - [x] BigDecimals
+  - [X] Booleanos
+  - [X] Calculadora
+  - [X] LocalDates
+  - [x] Strings
 - Médio 
-  - [ ] DiaDaSemanaEnum
-  - [ ] JSONs
-  - [ ] Strings
+  - [X] DiaDaSemanaEnum
+  - [x] JSONs
+  - [x] Strings
 - Difícil
-  - [ ] JavaReflection
+  - [x] JavaReflection

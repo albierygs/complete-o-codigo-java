@@ -15,4 +15,5 @@ public class Usuario {
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
     }
+
 }

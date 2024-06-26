@@ -1,5 +1,8 @@
 package br.com.felixgilioli.exercicios.medio;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * Métodos utilitários para trabalhar com JSON.
  */
@@ -14,7 +17,15 @@ public class Jsons {
      * @return json.
      */
     public static String toGson(Object obj) {
-        throw new UnsupportedOperationException();
+        if (obj == null) {
+            throw new NullPointerException("obj é obrigatório.");
+        }
+
+        Gson gson = new GsonBuilder().create();
+
+        String json = gson.toJson(obj);
+
+        return json;
     }
 
 }

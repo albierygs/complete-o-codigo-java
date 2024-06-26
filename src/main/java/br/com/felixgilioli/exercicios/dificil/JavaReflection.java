@@ -1,6 +1,7 @@
 package br.com.felixgilioli.exercicios.dificil;
 
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * Classe com exercícios sobre java reflection.
@@ -15,7 +16,18 @@ public class JavaReflection {
      * @return lista com nome dos atributos.
      */
     public static List<String> getNomeDosAtributosDoObjeto(Object objeto) {
-        throw new UnsupportedOperationException();
+        Set<String> atributos = new TreeSet<>();
+
+        if (objeto == null) {
+            return new ArrayList<>(atributos);
+        }
+        Class<?> objetoClasse = objeto.getClass();
+
+        for (Field atributo : objetoClasse.getDeclaredFields()) {
+            atributos.add(atributo.getName());
+        }
+
+        return new ArrayList<>(atributos);
     }
 
 }

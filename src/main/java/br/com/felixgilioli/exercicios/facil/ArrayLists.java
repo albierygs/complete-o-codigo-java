@@ -1,7 +1,10 @@
 package br.com.felixgilioli.exercicios.facil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 /**
  * Classe com métodos para trabalhar com listas do tipo {@link java.util.ArrayList}.
@@ -16,7 +19,9 @@ public class ArrayLists {
      * @return lista de inteiros apenas com números impares.
      */
     public static List<Integer> getImpares(List<Integer> numeros) {
-        return numeros;
+        return numeros.stream()
+                .filter(n -> n % 2 != 0)
+                .toList();
     }
 
     /**
@@ -26,7 +31,11 @@ public class ArrayLists {
      * @return quantidade de pessoas.
      */
     public static long getQuantidadeDePessoasQueComecamComALetra(List<String> pessoas, String letra) {
-        return 0;
+        long quantidade = pessoas.stream()
+                .filter(p -> p.startsWith(letra))
+                .count();
+
+        return quantidade;
     }
 
     /**
@@ -41,16 +50,15 @@ public class ArrayLists {
     public static List<Integer> getMenorQuantidadeDeCedulasPossivelParaInteiro(int valorEntrada) {
         List<Integer> quantidadeDeCedulas = new ArrayList<>();
 
-        // Montagem da Lista
-        /*
-        quantidadeDeCedulas.add(cedulas100);
-        quantidadeDeCedulas.add(cedulas50);
-        quantidadeDeCedulas.add(cedulas20);
-        quantidadeDeCedulas.add(cedulas10);
-        quantidadeDeCedulas.add(cedulas5);
-        quantidadeDeCedulas.add(cedulas2);
-        quantidadeDeCedulas.add(cedulas1);
-        */
+        List<Integer> cedulas = asList(100, 50, 20, 10, 5, 2, 1);
+
+        for (int i = 0; i < cedulas.size(); i++) {
+            int quatidadeCedulas = valorEntrada / cedulas.get(i);
+
+            quantidadeDeCedulas.add(quatidadeCedulas);
+
+            valorEntrada %= cedulas.get(i);
+        }
 
         return quantidadeDeCedulas;
     }
@@ -61,7 +69,11 @@ public class ArrayLists {
      * @param pessoas
      * @return
      */
-    public static List<String> getPessoasOrdenadasAlfabeticamenteCrescente(List<String> pessoas) { return null; }
+    public static List<String> getPessoasOrdenadasAlfabeticamenteCrescente(List<String> pessoas) {
+        return pessoas.stream()
+                .sorted()
+                .toList();
+    }
 
     /**
      * Deve retornar a mesma lista de nomes recebida {@param pessoas}, mas ordenada
@@ -69,7 +81,12 @@ public class ArrayLists {
      * @param pessoas
      * @return
      */
-    public static List<String> getPessoasOrdenadasAlfabeticamenteDecrescente(List<String> pessoas) { return null; }
+    public static List<String> getPessoasOrdenadasAlfabeticamenteDecrescente(List<String> pessoas) {
+        return pessoas.stream()
+                .sorted()
+                .toList()
+                .reversed();
+    }
 
 
 }

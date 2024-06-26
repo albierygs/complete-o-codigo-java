@@ -1,6 +1,11 @@
 package br.com.felixgilioli.exercicios.facil;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.util.Locale;
 
 /**
  * Classe com métodos para trabalhar com objetos do tipo {@link java.time.LocalDate}.
@@ -16,7 +21,9 @@ public class LocalDates {
      * @return quantidade de dias entre as datas.
      */
     public static long getQuantidadeDeDiasEntreDatas(LocalDate inicio, LocalDate fim) {
-        return 0;
+        long dias = inicio.until(fim, ChronoUnit.DAYS);
+
+        return Math.abs(dias);
     }
 
     /**
@@ -27,7 +34,7 @@ public class LocalDates {
      * @return
      */
     public static LocalDate getDataAnosAFrente(LocalDate inicio, long anos) {
-        return null;
+        return inicio.plusYears(anos);
     }
 
     /**
@@ -37,7 +44,9 @@ public class LocalDates {
      * @param meses
      * @return
      */
-    public static LocalDate getDataMesesAtras(LocalDate inicio, long meses) { return null; }
+    public static LocalDate getDataMesesAtras(LocalDate inicio, long meses) {
+        return inicio.minusMonths(meses);
+    }
 
     /**
      * Deve retornar a data fornecida {@param data} formatada em uma string de acordo com o
@@ -45,7 +54,10 @@ public class LocalDates {
      * @param data
      * @return
      */
-    public static String getDataFormatadaComBarrasNoPadraoBrasileiro(LocalDate data) { return null; }
+    public static String getDataFormatadaComBarrasNoPadraoBrasileiro(LocalDate data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return formatter.format(data);
+    }
 
     /**
      * Deve retornar a data fornecida {@param data} formatada em uma string de acordo com o
@@ -53,5 +65,7 @@ public class LocalDates {
      * @param data
      * @return
      */
-    public static String getDataFormatadaComHifensNoPadraoNorteAmericano(LocalDate data) { return null; }
+    public static String getDataFormatadaComHifensNoPadraoNorteAmericano(LocalDate data) {
+        return data.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
 }
